@@ -1,4 +1,1 @@
-Koildb
-======
-
-Mysqli Database class
+MySQLi Database Class
