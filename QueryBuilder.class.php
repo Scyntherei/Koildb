@@ -95,7 +95,7 @@ class QueryBuilder {
         
         $parts = array(
             "SELECT"         => "SELECT %s ",
-            "SELECT_DISTICT" => "SELECT DISTINCT",
+            "SELECT_DISTICT" => "SELECT DISTINCT %s",
             "FROM"           => "FROM %s ",
             "WHERE"          => "WHERE %s ",
             "GROUP_BY"       => "GROUP BY %s ",
