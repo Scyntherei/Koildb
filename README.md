@@ -41,3 +41,21 @@ All you need to do is instantiate it once:
     ->order_by("last_name", "DESC")
     ->limit(5); 
 ?>
+```
+
+#### Order of function calls doesn't matter!
+All that really matters is that you call an execute function last!
+``` php
+<?php
+    // Even if it really doesn't make sense, you're allowed to call these functions in any order as long as the execute statement is last.
+    // Produces SELECT `favorite_color`, `age`, `first_name`, `id` FROM `users` WHERE `age` < 25 AND `favorite_color` = 'red' ORDER BY `id` DESC LIMIT 30;
+    $db->order_by("id", "DESC")
+    ->where("age", "<", 25)
+    ->limit(30)
+    ->where("favorite_color", "=", "red")
+    ->from("users")
+    ->select("favorite_color", "age", "first_name", "id")
+    ->get(); // Execute statement (Must come last)
+?>
+```
+    
